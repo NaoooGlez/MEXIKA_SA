@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEXIKA | Historias que se convierten en prendas</title>
+
+    <style>
+
+        /* ==============================
+           CONFIGURACIÓN GENERAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #080808;
+            color: #f1eadb;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            background: #080808;
+            border-bottom: 1px solid #9c7a35;
+
+            padding: 22px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo h1 {
+            color: #c5a15b;
+
+            font-size: 32px;
+
+            letter-spacing: 7px;
+        }
+
+        .logo p {
+            color: #aaa;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            margin-top: 5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #eee;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #c5a15b;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+
+            min-height: 90vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 80px 10%;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.9)
+                ),
+                url("portada-mexika.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+ .hero-contenido {
+    width: 100%;
+     max-width: 1200px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+.hero-texto {
+
+    flex: 1;
+
+    max-width: 700px;
+}
+
+.hero-logo {
+
+    flex: 0 0 320px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.hero-logo img {
+
+    width: 350px;
+
+    max-width: 170%;
+
+    height: auto;
+}
+
+        .logo-banner {
+            width: 220px;
+            max-width: 100%;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .subtitulo {
+            color: #c5a15b;
+
+            letter-spacing: 4px;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+
+            font-size: 60px;
+
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+
+            color: #d0c8b9;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            max-width: 620px;
+        }
+
+
+        /* ==============================
+           BOTONES
+        ============================== */
+
+        .boton {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 14px 30px;
+
+            background: #9c7a35;
+
+            color: #080808;
+
+            border: none;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+
+            background: #d1b06a;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ==============================
+           SECCIONES
+        ============================== */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .titulo-seccion {
+
+            text-align: center;
+
+            color: #c5a15b;
+
+            font-size: 36px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 15px;
+        }
+
+        .descripcion-seccion {
+
+            text-align: center;
+
+            color: #aaa;
+
+            margin-bottom: 50px;
+
+            font-size: 16px;
+        }
+
+
+        /* ==============================
+           COLECCIONES
+        ============================== */
+
+        #colecciones {
+            background: #0b0b0b;
+        }
+
+        .galeria {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        /*
+            LA IMAGEN COMPLETA FUNCIONA
+            COMO BOTÓN
+        */
+
+        .coleccion {
+
+            position: relative;
+
+            height: 430px;
+
+            overflow: hidden;
+
+            border: 1px solid #292929;
+
+            cursor: pointer;
+
+            display: block;
+        }
+
+        .coleccion img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.6s;
+        }
+
+        .coleccion:hover img {
+
+            transform: scale(1.08);
+        }
+
+        .nombre-coleccion {
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            padding: 35px 20px 25px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,0.95)
+                );
+        }
+
+        .nombre-coleccion h3 {
+
+            color: #d1b06a;
+
+            font-size: 24px;
+
+            letter-spacing: 3px;
+        }
+
+        .nombre-coleccion p {
+
+            color: #ddd;
+
+            font-size: 14px;
+
+            margin-top: 7px;
+        }
+
+
+        /* ==============================
+           DETALLE DE COLECCIONES
+        ============================== */
+
+        .detalle {
+
+            min-height: 600px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 60px;
+
+            border-top: 1px solid #222;
+        }
+
+        .detalle:nth-child(even) {
+
+            background: #101010;
+        }
+
+        .detalle-imagen img {
+
+            width: 100%;
+
+            max-height: 600px;
+
+            object-fit: cover;
+        }
+
+        .detalle-texto {
+
+            max-width: 600px;
+        }
+
+        .numero {
+
+            color: #9c7a35;
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 15px;
+        }
+
+        .detalle h2 {
+
+            color: #c5a15b;
+
+            font-size: 48px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 25px;
+        }
+
+        .detalle h3 {
+
+            color: #eee;
+
+            font-size: 20px;
+
+            margin-bottom: 15px;
+        }
+
+        .detalle p {
+
+            color: #c5c0b5;
+
+            line-height: 1.8;
+
+            margin-bottom: 18px;
+
+            font-size: 16px;
+        }
+
+
+        /* ==============================
+           PRODUCTO LOBO MEXICANO
+        ============================== */
+
+        .producto {
+
+            background: #111;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 60px;
+        }
+
+        .producto-imagen img {
+
+            width: 100%;
+
+            display: block;
+        }
+
+        .producto-info h2 {
+
+            font-size: 48px;
+
+            color: #c5a15b;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 25px;
+        }
+
+        .producto-info p {
+
+            color: #d0c8b9;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* ==============================
+           NOSOTROS
+        ============================== */
+
+        .nosotros {
+
+            text-align: center;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .nosotros p {
+
+            color: #c7c0b3;
+
+            line-height: 1.8;
+
+            margin: 20px auto;
+
+            font-size: 17px;
+        }
+
+        .frase {
+
+            color: #c5a15b !important;
+
+            font-size: 25px !important;
+
+            font-style: italic;
+
+            margin-top: 40px !important;
+        }
+
+
+        /* ==============================
+           CONTACTO
+        ============================== */
+
+        .contacto {
+
+            text-align: center;
+
+            background: #151515;
+        }
+
+        .contacto h2 {
+
+            font-size: 35px;
+
+            color: #c5a15b;
+
+            letter-spacing: 3px;
+        }
+
+        .contacto p {
+
+            color: #c7c0b3;
+
+            margin-top: 15px;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background: #050505;
+
+            border-top: 1px solid #9c7a35;
+        }
+
+        footer h2 {
+
+            color: #c5a15b;
+
+            letter-spacing: 6px;
+
+            margin-bottom: 10px;
+        }
+
+        footer p {
+
+            color: #777;
+
+            margin-top: 10px;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 900px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 20px;
+
+            }
+
+            nav {
+
+                justify-content: center;
+
+            }
+
+            .galeria {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+            .detalle {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .producto {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero h2 {
+
+                font-size: 40px;
+
+            }
+
+            .galeria {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .coleccion {
+
+                height: 400px;
+
+            }
+
+            .detalle h2 {
+
+                font-size: 35px;
+
+            }
+
+            .producto-info h2 {
+
+                font-size: 35px;
+
+            }
+
+            nav {
+
+                gap: 12px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     ENCABEZADO
+========================================= -->
+
+<header>
+
+    <div class="logo">
+
+        <h1>MEXIKA</h1>
+
+        <p>
+            HISTORIAS QUE SE CONVIERTEN EN PRENDAS
+        </p>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#inicio">
+            Inicio
+        </a>
+
+        <a href="#colecciones">
+            Colecciones
+        </a>
+
+        <a href="#lobo">
+            Producto Estrella
+        </a>
+
+        <a href="#nosotros">
+            Nosotros
+        </a>
+
+        <a href="#contacto">
+            Contacto
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================
+     PORTADA
+========================================= -->
+
+<section id="inicio" class="hero">
+
+    <div class="hero-contenido">
+
+        <div class="hero-texto">
+
+            <p class="subtitulo">
+                MODA • CULTURA • IDENTIDAD
+            </p>
+
+            <h2>
+                Historias que se
+                <br>
+                convierten en prendas
+            </h2>
+
+            <p>
+
+                MEXIKA transforma leyendas,
+                tradiciones, símbolos y elementos
+                de la cultura mexicana en piezas
+                de moda contemporánea.
+
+            </p>
+
+            <a href="#colecciones" class="boton">
+
+                EXPLORAR COLECCIONES
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-logo">
+
+            <img
+                src="logotipo.png"
+                alt="Logo MEXIKA"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     COLECCIONES
+========================================= -->
+
+<section id="colecciones">
+
+    <h2 class="titulo-seccion">
+        COLECCIONES
+    </h2>
+
+    <p class="descripcion-seccion">
+
+        Haz clic en una imagen para descubrir
+        la historia detrás de cada colección.
+
+    </p>
+
+
+    <div class="galeria">
+
+
+        <!-- QUETZALCÓATL -->
+
+        <a href="#quetzalcoatl" class="coleccion">
+
+            <img
+                src="Quetzalcóatl.png"
+                alt="Colección Quetzalcóatl"
+            >
+
+            <div class="nombre-coleccion">
+
+                <h3>
+                    QUETZALCÓATL
+                </h3>
+
+                <p>
+                    La serpiente emplumada
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- MICTLÁN -->
+
+        <a href="#mictlan" class="coleccion">
+
+            <img
+                src="mitclan.png"
+                alt="Colección Mictlán"
+            >
+
+            <div class="nombre-coleccion">
+
+                <h3>
+                    MICTLÁN
+                </h3>
+
+                <p>
+                    El viaje al inframundo
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- LA LLORONA -->
+
+        <a href="#llorona" class="coleccion">
+
+            <img
+                src="llorona.jpeg"
+                alt="Colección La Llorona"
+            >
+
+            <div class="nombre-coleccion">
+
+                <h3>
+                    LA LLORONA
+                </h3>
+
+                <p>
+                    Una leyenda que permanece
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- MARIPOSA -->
+
+        <a href="#mariposa" class="coleccion">
+
+            <img
+                src="mariposa.png"
+                alt="Colección Mariposa"
+            >
+
+            <div class="nombre-coleccion">
+
+                <h3>
+                    MARIPOSA
+                </h3>
+
+                <p>
+                    Transformación y libertad
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- FLOR DE MÉXICO -->
+
+        <a href="#flor" class="coleccion">
+
+            <img
+                src="flor.png"
+                alt="Colección Flor de México"
+            >
+
+            <div class="nombre-coleccion">
+
+                <h3>
+                    FLOR DE MÉXICO
+                </h3>
+
+                <p>
+                    La naturaleza como identidad
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- LOBO -->
+
+        <a href="#lobo" class="coleccion">
+
+            <img
+                src="chamarra.png"
+                alt="Chamarra Lobo Mexicano"
+            >
+
+            <div class="nombre-coleccion">
+
+                <h3>
+                    LOBO MEXICANO
+                </h3>
+
+                <p>
+                    Fuerza, naturaleza e identidad
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DETALLE QUETZALCÓATL
+========================================= -->
+
+<section id="quetzalcoatl" class="detalle">
+
+    <div class="detalle-imagen">
+
+        <img
+            src="CQuetzalcóatl.png"
+            alt="Colección Quetzalcóatl"
+        >
+
+    </div>
+
+
+    <div class="detalle-texto">
+
+        <p class="numero">
+            COLECCIÓN 01
+        </p>
+
+        <h2>
+            QUETZALCÓATL
+        </h2>
+
+        <h3>
+            La serpiente emplumada
+        </h3>
+
+        <p>
+
+            Esta colección toma como inspiración
+            la figura de Quetzalcóatl, uno de los
+            símbolos más reconocidos de la cultura
+            mesoamericana.
+
+        </p>
+
+        <p>
+
+            MEXIKA transforma la serpiente emplumada
+            en elementos gráficos y ornamentales
+            aplicados a prendas contemporáneas.
+
+        </p>
+
+        <p>
+
+            Los diseños buscan representar fuerza,
+            conocimiento, movimiento y conexión
+            entre lo humano y lo espiritual.
+
+        </p>
+
+        <a href="#contacto" class="boton">
+            QUIERO CONOCER LA COLECCIÓN
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DETALLE MICTLÁN
+========================================= -->
+
+<section id="mictlan" class="detalle">
+
+    <div class="detalle-imagen">
+
+        <img
+            src="cmitclan.jpeg"
+            alt="Colección Mictlán"
+        >
+
+    </div>
+
+
+    <div class="detalle-texto">
+
+        <p class="numero">
+            COLECCIÓN 02
+        </p>
+
+        <h2>
+            MICTLÁN
+        </h2>
+
+        <h3>
+            El viaje al inframundo
+        </h3>
+
+        <p>
+
+            Mictlán representa una interpretación
+            contemporánea de las historias relacionadas
+            con el inframundo de la tradición mexica.
+
+        </p>
+
+        <p>
+
+            La colección utiliza una estética oscura,
+            simbólica y misteriosa para representar
+            el viaje y la transformación.
+
+        </p>
+
+        <p>
+
+            Tonos oscuros, elementos ornamentales
+            y referencias culturales crean prendas
+            con una identidad visual profunda.
+
+        </p>
+
+        <a href="#contacto" class="boton">
+            QUIERO CONOCER LA COLECCIÓN
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DETALLE LA LLORONA
+========================================= -->
+
+<section id="llorona" class="detalle">
+
+    <div class="detalle-imagen">
+
+        <img
+            src="cllorona.png"
+            alt="Colección La Llorona"
+        >
+
+    </div>
+
+
+    <div class="detalle-texto">
+
+        <p class="numero">
+            COLECCIÓN 03
+        </p>
+
+        <h2>
+            LA LLORONA
+        </h2>
+
+        <h3>
+            Una leyenda que permanece
+        </h3>
+
+        <p>
+
+            Una de las leyendas más conocidas
+            de México se convierte en inspiración
+            para una colección de estética misteriosa.
+
+        </p>
+
+        <p>
+
+            La colección explora la noche,
+            el agua, la nostalgia y el misterio
+            asociados con esta historia.
+
+        </p>
+
+        <p>
+
+            MEXIKA convierte una leyenda tradicional
+            en una propuesta visual contemporánea.
+
+        </p>
+
+        <a href="#contacto" class="boton">
+            QUIERO CONOCER LA COLECCIÓN
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DETALLE MARIPOSA
+========================================= -->
+
+<section id="mariposa" class="detalle">
+
+    <div class="detalle-imagen">
+
+        <img
+            src="cmariposa.png"
+            alt="Colección Mariposa"
+        >
+
+    </div>
+
+
+    <div class="detalle-texto">
+
+        <p class="numero">
+            COLECCIÓN 04
+        </p>
+
+        <h2>
+            MARIPOSA
+        </h2>
+
+        <h3>
+            Transformación y libertad
+        </h3>
+
+        <p>
+
+            Mariposa representa el cambio,
+            la transformación y la libertad.
+
+        </p>
+
+        <p>
+
+            Los diseños toman las formas y
+            movimientos de las mariposas para
+            crear una propuesta delicada pero
+            contemporánea.
+
+        </p>
+
+        <p>
+
+            Una colección que representa la
+            posibilidad de transformarse sin
+            perder nuestra esencia.
+
+        </p>
+
+        <a href="#contacto" class="boton">
+            QUIERO CONOCER LA COLECCIÓN
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DETALLE FLOR DE MÉXICO
+========================================= -->
+
+<section id="flor" class="detalle">
+
+    <div class="detalle-imagen">
+
+        <img
+            src="cflor.png"
+            alt="Colección Flor de México"
+        >
+
+    </div>
+
+
+    <div class="detalle-texto">
+
+        <p class="numero">
+            COLECCIÓN 05
+        </p>
+
+        <h2>
+            FLOR DE MÉXICO
+        </h2>
+
+        <h3>
+            La naturaleza como identidad
+        </h3>
+
+        <p>
+
+            México posee una enorme diversidad
+            de flores, plantas y paisajes que forman
+            parte de su identidad.
+
+        </p>
+
+        <p>
+
+            Esta colección convierte elementos
+            de la naturaleza mexicana en patrones,
+            bordados y gráficos contemporáneos.
+
+        </p>
+
+        <p>
+
+            El resultado es una propuesta que
+            combina naturaleza, color e identidad.
+
+        </p>
+
+        <a href="#contacto" class="boton">
+            QUIERO CONOCER LA COLECCIÓN
+        </a>
+
+    </div>
+
+</section>
+
+<section id="lobo" class="producto">
+
+    <div class="producto-imagen">
+
+        <img
+            src="estrella.jpeg"
+            alt="Chamarra Lobo Mexicano"
+        >
+
+    </div>
+
+
+    <div class="producto-info">
+
+        <p class="subtitulo">
+            PRODUCTO ESTRELLA
+        </p>
+
+        <h2>
+            LOBO MEXICANO
+        </h2>
+
+        <p>
+
+            Una chamarra urbana inspirada en
+            el lobo mexicano, símbolo de fuerza,
+            naturaleza e identidad.
+
+        </p>
+
+        <p>
+
+            Su diseño combina una estética
+            contemporánea con elementos que
+            representan la riqueza natural de México.
+
+        </p>
+
+        <p>
+
+            Una prenda creada para llevar
+            una parte de México contigo.
+
+        </p>
+
+        <b><p>
+            Una parte de la cantidad recaudada con la venta de esta chamarra estara
+            destinada para la preservación de la expecie.
+        </p></b>
+
+        <a href="#contacto" class="boton">
+
+            QUIERO MI CHAMARRA
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<section id="nosotros" class="nosotros">
+
+    <h2 class="titulo-seccion">
+        SOBRE MEXIKA
+    </h2>
+
+    <p>
+
+        MEXIKA es una marca de moda contemporánea
+        que busca transformar la cultura mexicana
+        en prendas que puedan ser utilizadas por
+        nuevas generaciones.
+
+    </p>
+
+    <p>
+
+        Nuestra inspiración nace de las leyendas,
+        tradiciones, símbolos, naturaleza y expresiones
+        culturales de México.
+
+    </p>
+
+    <p>
+
+        Cada colección cuenta una historia y cada
+        prenda representa una forma diferente de
+        conectar con nuestras raíces.
+
+    </p>
+
+    <p class="frase">
+
+        “No solo usamos una prenda.
+        <br>
+        Llevamos una historia.”
+
+    </p>
+
+</section>
+
+
+
+<section id="contacto" class="contacto">
+
+    <h2>
+        CONOCE MEXIKA
+    </h2>
+
+    <p>
+
+        Descubre nuestras colecciones y encuentra
+        la historia que quieres llevar contigo.
+
+    </p>
+
+    <a
+        href="https://www.instagram.com/mexika_sa?stkn=MXhucHR5aDBpZjlueQ=="
+        class="boton"
+    >
+
+        CONTACTAR
+
+    </a>
+
+</section>
+
+<footer>
+
+    <h2>
+        MEXIKA
+    </h2>
+
+    <p>
+        Historias que se convierten en prendas
+    </p>
+
+    <p>
+        © 2026 MEXIKA | Moda contemporánea mexicana
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
